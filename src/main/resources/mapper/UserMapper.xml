@@ -1,0 +1,5 @@
+<mapper namespace="com.example.ecommerce.mapper.UserMapper">
+    <select id="findByUsername" resultType="com.example.ecommerce.entity.User">
+        SELECT * FROM users WHERE username = #{username}
+    </select>
+</mapper>

@@ -1,0 +1,7 @@
+<!-- ProductMapper.xml -->
+<mapper namespace="com.example.ecommerce.mapper.ProductMapper">
+    <!-- 查询所有商品 -->
+    <select id="getAllProducts" resultType="com.example.ecommerce.entity.Product">
+        SELECT * FROM products;
+    </select>
+</mapper>
