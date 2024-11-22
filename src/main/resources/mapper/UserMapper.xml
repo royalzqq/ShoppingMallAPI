@@ -1,5 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.example.ecommerce.mapper.UserMapper">
     <select id="findByUsername" resultType="com.example.ecommerce.entity.User">
         SELECT * FROM users WHERE username = #{username}
     </select>
+    <!-- 查询所有已登录用户 -->
+    <select id="findAllLoggedInUsers" resultMap="userResultMap">
+        SELECT * FROM users WHERE isLoggedIn = true
+    </select>
+    <!-- 其他已有的SQL映射方法，如findByUsername、findByToken等，保持不变 -->
+    <select id="findById" resultMap="userResultMap">
+        SELECT * FROM users WHERE id = #{id}
+    </select>
+<!--    <update id="updateUser">-->
+<!--        UPDATE users-->
+<!--        SET balance = #{balance}, isLoggedIn = #{isLoggedIn}, token = #{token}-->
+<!--        WHERE id = #{id}-->
+<!--    </update>-->
+
+    <!-- 用户结果映射 -->
+    <resultMap id="userResultMap" type="com.example.ecommerce.entity.User">
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="email" column="email" />
+        <result property="userType" column="userType" />
+        <result property="createdAt" column="createdAt" />
+        <result property="token" column="token" />
+        <result property="balance" column="balance" />
+    </resultMap>
+
 </mapper>

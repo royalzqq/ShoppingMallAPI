@@ -1,6 +1,8 @@
 package com.example.ecommerce.controller;
 
+import com.example.ecommerce.entity.CartItem;
 import com.example.ecommerce.entity.Order;
+import com.example.ecommerce.service.CartService;
 import com.example.ecommerce.service.OrderService;
 import jakarta.annotation.Resource;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,9 @@ public class OrderController {
 
     @Resource
     private OrderService orderService;
+
+    @Resource  // 或 @Autowired
+    private CartService cartService;
 
     // 获取所有订单
     @GetMapping("/getAllOrders")
@@ -95,6 +100,17 @@ public class OrderController {
             }
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    // 新增：添加商品到购物车
+    @PostMapping("/addToCart")
+    public ResponseEntity<String> addToCart(@RequestBody CartItem cartItem) {
+        System.out.println("购物车entered addToCart cartItem = " + cartItem);
+        boolean added = cartService.addToCart(cartItem);  // 调用 CartService 添加商品
+        if (added) {
+            return ResponseEntity.ok("商品已成功添加到购物车");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("添加商品失败");
         }
     }
 }

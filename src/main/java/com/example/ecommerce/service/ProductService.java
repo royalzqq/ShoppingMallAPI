@@ -5,7 +5,7 @@ import com.example.ecommerce.entity.Product;
 import java.util.List;
 
 public interface ProductService {
-    // 获取所有商品
+    // 查询所有商品
     List<Product> getAllProducts();
 
     // 根据ID获取商品

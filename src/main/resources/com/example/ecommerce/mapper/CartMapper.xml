@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.ecommerce.mapper.CartMapper">
+
+    <!-- Add to Cart statement -->
+    <insert id="addToCart" parameterType="com.example.ecommerce.entity.CartItem">
+        INSERT INTO cart (user_id, product_id, quantity, selected)
+        VALUES (#{userId}, #{productId}, #{quantity}, #{selected});
+    </insert>
+
+    <!-- Other SQL statements -->
+
+</mapper>

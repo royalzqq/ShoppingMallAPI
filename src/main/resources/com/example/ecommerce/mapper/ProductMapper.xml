@@ -1,7 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- ProductMapper.xml -->
 <mapper namespace="com.example.ecommerce.mapper.ProductMapper">
     <!-- 查询所有商品 -->
     <select id="getAllProducts" resultType="com.example.ecommerce.entity.Product">
-        SELECT * FROM products;
+        select * from products;
     </select>
+
 </mapper>

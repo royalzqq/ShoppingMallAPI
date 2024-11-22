@@ -20,7 +20,15 @@ public class ProductController {
     // 获取所有商品
     @GetMapping("/getAllProducts")
     public ResponseEntity<List<Product>> getAllProducts() {
-        List<Product> products = productService.getAllProducts();
-        return new ResponseEntity<>(products, HttpStatus.OK);
+        try {
+            System.out.println("访问了 getAllProducts 接口");
+            List<Product> products = productService.getAllProducts();
+            return new ResponseEntity<>(products, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace(); // Log the full stack trace
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
+
+
 }

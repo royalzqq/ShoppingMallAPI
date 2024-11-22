@@ -16,7 +16,7 @@ public class MailConfig {
         mailSender.setHost("smtp.163.com");
         mailSender.setPort(465); // SSL 端口
         mailSender.setUsername("q17871152478@163.com");
-        mailSender.setPassword("RPVrdbFe9jKQTkZx");
+        mailSender.setPassword("FMQuR359jhxrhYaW");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");

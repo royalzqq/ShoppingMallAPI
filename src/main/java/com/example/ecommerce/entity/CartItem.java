@@ -1,12 +1,13 @@
 package com.example.ecommerce.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class CartItem {
-    private Integer id;
-    private Integer userId;
-    private Integer productId;
-    private Integer quantity;
-    private Boolean selected;
+    private int userId;      // 用户ID
+    private int productId;   // 商品ID
+    private int quantity;    // 商品数量
+    private boolean selected;
 }

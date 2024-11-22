@@ -11,8 +11,9 @@ public class User {
     private String email;
     private String userType; // 'normal_user', 'admin_user'
     private LocalDateTime createdAt;
+    private Double balance;
+    private String token; // 新增 token 字段
+    private boolean isLoggedIn; // 用于表示用户登录状态
 
-    public void setToken(String sessionToken) {
 
-    }
 }
